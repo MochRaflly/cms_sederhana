@@ -26,7 +26,13 @@
         </ul>
 
         <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item mr-2">
+                <form class="form-inline position-relative">
+                    <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Cari..." aria-label="Search" id="smartSearchInput" autocomplete="off" style="width:180px;">
+                    <div class="dropdown-menu w-100" id="smartSearchDropdown" style="max-height:300px;overflow-y:auto;"></div>
+                </form>
+            </li>
             <li class="nav-item">
                 <button id="darkModeToggle" class="btn btn-dark mr-2" title="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></button>
             </li>

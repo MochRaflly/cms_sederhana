@@ -241,4 +241,42 @@ $(function() {
             showToast('Gagal terhubung ke server.', 'error');
         });
     });
+});
+
+// SMART SEARCH BAR
+$(function() {
+    var $input = $('#smartSearchInput');
+    var $dropdown = $('#smartSearchDropdown');
+    var typingTimer;
+    $input.on('input', function() {
+        clearTimeout(typingTimer);
+        var q = $input.val().trim();
+        if (q.length < 2) {
+            $dropdown.removeClass('show').empty();
+            return;
+        }
+        typingTimer = setTimeout(function() {
+            $.get('search_suggestions.php', {q: q}, function(res) {
+                if (res.success && res.results.length > 0) {
+                    var html = '';
+                    res.results.forEach(function(item) {
+                        var icon = item.type === 'post' ? 'fa-file-alt' : (item.type === 'category' ? 'fa-list' : 'fa-user');
+                        var color = item.type === 'post' ? 'text-primary' : (item.type === 'category' ? 'text-success' : 'text-warning');
+                        html += '<a href="' + item.url + '" class="dropdown-item d-flex align-items-center">'
+                            + '<i class="fas ' + icon + ' mr-2 ' + color + '"></i>'
+                            + '<span>' + item.label + '</span>'
+                            + '<span class="ml-auto badge badge-light">' + item.type.charAt(0).toUpperCase() + item.type.slice(1) + '</span>'
+                            + '</a>';
+                    });
+                    $dropdown.html(html).addClass('show');
+                } else {
+                    $dropdown.html('<span class="dropdown-item text-muted">Tidak ditemukan</span>').addClass('show');
+                }
+            }, 'json');
+        }, 250);
+    });
+    // Hide dropdown on blur
+    $input.on('blur', function() { setTimeout(function() { $dropdown.removeClass('show'); }, 200); });
+    // Show dropdown on focus if ada hasil
+    $input.on('focus', function() { if ($dropdown.children().length) $dropdown.addClass('show'); });
 }); 
