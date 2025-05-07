@@ -311,4 +311,89 @@ body.dark-mode, .dark-mode .content-wrapper {
     background: #232a3b !important;
     color: #e4e6eb !important;
     border-left: 4px solid #1cc88a !important;
-} 
+}
+
+/* Login Animasi & Modern */
+.login-box {
+    margin-top: 5vh;
+}
+.login-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--primary-color, #4e73df);
+    text-shadow: 0 2px 8px rgba(78,115,223,0.08);
+}
+.login-card-body {
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(78,115,223,0.10);
+    background: #fff;
+    animation: fadeIn 1s;
+}
+.floating-input {
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+.floating-input:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 8px #4e73df33;
+}
+.btn-primary {
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(78,115,223,0.10);
+}
+.btn-primary:hover {
+    background: #224abe;
+    box-shadow: 0 4px 16px rgba(78,115,223,0.15);
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: none; }
+}
+
+/* Login Theme Selector */
+.theme-selector {
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+.theme-color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.theme-color:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.theme-blue { background: #4e73df; }
+.theme-green { background: #1cc88a; }
+.theme-purple { background: #6f42c1; }
+.theme-red { background: #e74a3b; }
+.theme-orange { background: #f6c23e; }
+
+/* Login Theme Backgrounds */
+body.theme-blue { background: linear-gradient(135deg, #4e73df 0%, #36b9cc 100%) !important; }
+body.theme-green { background: linear-gradient(135deg, #1cc88a 0%, #20c997 100%) !important; }
+body.theme-purple { background: linear-gradient(135deg, #6f42c1 0%, #a259c4 100%) !important; }
+body.theme-red { background: linear-gradient(135deg, #e74a3b 0%, #f37272 100%) !important; }
+body.theme-orange { background: linear-gradient(135deg, #f6c23e 0%, #f9a602 100%) !important; }
+
+body[class^="theme-"] .login-card-body {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+}
+body[class^="theme-"] .btn-primary {
+    background: #fff !important;
+    color: #222 !important;
+    border: none;
+}
+body.theme-blue .btn-primary { color: #4e73df !important; }
+body.theme-green .btn-primary { color: #1cc88a !important; }
+body.theme-purple .btn-primary { color: #6f42c1 !important; }
+body.theme-red .btn-primary { color: #e74a3b !important; }
+body.theme-orange .btn-primary { color: #f6c23e !important; } 
