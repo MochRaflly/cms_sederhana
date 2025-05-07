@@ -1,0 +1,247 @@
+/* Custom Colors and Animations */
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #1cc88a;
+    --accent-color: #36b9cc;
+    --warning-color: #f6c23e;
+    --danger-color: #e74a3b;
+}
+
+/* Animated Background */
+.content-wrapper {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Card Animations */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Button Animations */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Sidebar Animation */
+.sidebar-dark-primary {
+    background: linear-gradient(180deg, #4e73df 0%, #224abe 100%);
+}
+
+.nav-sidebar .nav-item {
+    transition: all 0.3s ease;
+}
+
+.nav-sidebar .nav-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(5px);
+}
+
+/* Table Animations */
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(78, 115, 223, 0.1);
+    transform: scale(1.01);
+}
+
+/* Small Box Animations */
+.small-box {
+    transition: all 0.3s ease;
+}
+
+.small-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Calendar Customization */
+#calendar {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.fc-event {
+    transition: all 0.3s ease;
+}
+
+.fc-event:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Modal Animations */
+.modal.fade .modal-dialog {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+    transform: scale(1);
+}
+
+/* Form Input Animations */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Badge Animations */
+.badge {
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+/* Loading Animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Sidebar Interaktif */
+.main-sidebar {
+    transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.main-sidebar.sidebar-mini {
+    width: 60px !important;
+}
+
+.main-sidebar.sidebar-mini .brand-link, .main-sidebar.sidebar-mini .sidebar-toggle, .main-sidebar.sidebar-mini .nav-sidebar .nav-link p {
+    display: none !important;
+}
+
+.main-sidebar.sidebar-mini .nav-sidebar .nav-link {
+    justify-content: center;
+}
+
+.main-sidebar.sidebar-mini .nav-icon {
+    font-size: 1.5rem;
+}
+
+.nav-sidebar .nav-link.active, .nav-sidebar .nav-link.active:focus, .nav-sidebar .nav-link.active:hover {
+    background: linear-gradient(90deg, #4e73df 0%, #36b9cc 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(78,115,223,0.15);
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-sidebar .nav-link {
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+
+.nav-sidebar .nav-link:hover {
+    background: rgba(78,115,223,0.08);
+    color: #4e73df;
+    transform: translateX(5px) scale(1.03);
+}
+
+.nav-sidebar .nav-icon {
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-sidebar .nav-link:hover .nav-icon {
+    color: #36b9cc;
+    transform: scale(1.2) rotate(-10deg);
+}
+
+/* Tooltip Customization */
+.tooltip-inner {
+    background-color: #4e73df !important;
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.tooltip.bs-tooltip-right .arrow:before {
+    border-right-color: #4e73df !important;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle .btn {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(78,115,223,0.08);
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-toggle .btn:hover {
+    background: #4e73df;
+    color: #fff;
+} 
