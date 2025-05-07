@@ -244,4 +244,71 @@
 .sidebar-toggle .btn:hover {
     background: #4e73df;
     color: #fff;
+}
+
+/* DARK MODE */
+body.dark-mode, .dark-mode .content-wrapper {
+    background: #18191a !important;
+    color: #e4e6eb !important;
+}
+.dark-mode .main-header, .dark-mode .main-footer, .dark-mode .card, .dark-mode .modal-content {
+    background: #242526 !important;
+    color: #e4e6eb !important;
+    border-color: #333;
+}
+.dark-mode .main-sidebar, .dark-mode .sidebar {
+    background: #202124 !important;
+    color: #e4e6eb !important;
+}
+.dark-mode .nav-sidebar .nav-link {
+    color: #b0b3b8 !important;
+}
+.dark-mode .nav-sidebar .nav-link.active, .dark-mode .nav-sidebar .nav-link.active:focus, .dark-mode .nav-sidebar .nav-link.active:hover {
+    background: linear-gradient(90deg, #232a3b 0%, #1cc88a 100%) !important;
+    color: #fff !important;
+}
+.dark-mode .nav-sidebar .nav-link:hover {
+    background: rgba(28,200,138,0.08) !important;
+    color: #1cc88a !important;
+}
+.dark-mode .nav-sidebar .nav-link .nav-icon {
+    color: #b0b3b8 !important;
+}
+.dark-mode .nav-sidebar .nav-link:hover .nav-icon {
+    color: #1cc88a !important;
+}
+.dark-mode .small-box, .dark-mode #calendar {
+    background: #242526 !important;
+    color: #e4e6eb !important;
+    box-shadow: 0 0 10px #111;
+}
+.dark-mode .table, .dark-mode .table th, .dark-mode .table td {
+    background: #18191a !important;
+    color: #e4e6eb !important;
+}
+.dark-mode .form-control {
+    background: #242526 !important;
+    color: #e4e6eb !important;
+    border-color: #333;
+}
+.dark-mode .modal-content {
+    background: #242526 !important;
+    color: #e4e6eb !important;
+}
+.dark-mode .btn-primary {
+    background: #1cc88a !important;
+    border-color: #1cc88a !important;
+}
+.dark-mode .btn-dark {
+    background: #232a3b !important;
+    border-color: #232a3b !important;
+}
+.dark-mode .badge {
+    background: #232a3b !important;
+    color: #1cc88a !important;
+}
+.dark-mode .toast {
+    background: #232a3b !important;
+    color: #e4e6eb !important;
+    border-left: 4px solid #1cc88a !important;
 } 

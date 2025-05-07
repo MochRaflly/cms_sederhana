@@ -10,7 +10,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -25,6 +27,14 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <button id="darkModeToggle" class="btn btn-dark mr-2" title="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></button>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#userSettingsModal">
+                    <i class="fas fa-cog"></i> Pengaturan
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">
                     <i class="fas fa-sign-out-alt"></i> Logout
@@ -43,31 +53,41 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
+            <!-- Sidebar Mini Toggle -->
+            <div class="sidebar-toggle d-flex justify-content-end p-2">
+                <button id="sidebarToggle" class="btn btn-sm btn-light" title="Toggle Sidebar"><i class="fas fa-angle-double-left"></i></button>
+            </div>
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                     <li class="nav-item">
                         <a href="index.php" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <i class="nav-icon fas fa-tachometer-alt" data-toggle="tooltip" data-placement="right" title="Dashboard"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="posts.php" class="nav-link">
-                            <i class="nav-icon fas fa-file-alt"></i>
+                            <i class="nav-icon fas fa-file-alt" data-toggle="tooltip" data-placement="right" title="Posts"></i>
                             <p>Posts</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="categories.php" class="nav-link">
-                            <i class="nav-icon fas fa-list"></i>
+                            <i class="nav-icon fas fa-list" data-toggle="tooltip" data-placement="right" title="Categories"></i>
                             <p>Categories</p>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="users.php" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
+                            <i class="nav-icon fas fa-users" data-toggle="tooltip" data-placement="right" title="Users"></i>
                             <p>Users</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#userSettingsModal">
+                            <i class="nav-icon fas fa-cog" data-toggle="tooltip" data-placement="right" title="Pengaturan"></i>
+                            <p>Pengaturan</p>
                         </a>
                     </li>
                 </ul>

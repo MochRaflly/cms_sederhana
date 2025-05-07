@@ -196,4 +196,49 @@ $(function() {
             $(this).addClass('active');
         }
     });
+});
+
+// DARK MODE TOGGLE
+$(function() {
+    // Set mode dari localStorage
+    if (localStorage.getItem('darkMode') === 'true') {
+        $('body').addClass('dark-mode');
+        $('#darkModeToggle i').removeClass('fa-moon').addClass('fa-sun');
+    }
+    // Toggle dark mode
+    $('#darkModeToggle').on('click', function() {
+        $('body').toggleClass('dark-mode');
+        const isDark = $('body').hasClass('dark-mode');
+        localStorage.setItem('darkMode', isDark);
+        // Ganti icon
+        if (isDark) {
+            $('#darkModeToggle i').removeClass('fa-moon').addClass('fa-sun');
+        } else {
+            $('#darkModeToggle i').removeClass('fa-sun').addClass('fa-moon');
+        }
+    });
+
+    // Handler AJAX untuk form pengaturan pengguna
+    $('#userSettingsForm').on('submit', function(e) {
+        e.preventDefault();
+        var name = $('#userName').val();
+        var email = $('#userEmail').val();
+        var password = $('#userPassword').val();
+        $.post('user_settings_update.php', {
+            name: name,
+            email: email,
+            password: password
+        }, function(res) {
+            if (res.success) {
+                showToast(res.message, 'success');
+                $('#userSettingsModal').modal('hide');
+                // Update nama/email di session jika perlu (reload page)
+                setTimeout(function(){ location.reload(); }, 1000);
+            } else {
+                showToast(res.message, 'error');
+            }
+        }, 'json').fail(function() {
+            showToast('Gagal terhubung ke server.', 'error');
+        });
+    });
 }); 
