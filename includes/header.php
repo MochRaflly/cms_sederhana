@@ -33,6 +33,16 @@
                     <div class="dropdown-menu w-100" id="smartSearchDropdown" style="max-height:300px;overflow-y:auto;"></div>
                 </form>
             </li>
+            <li class="nav-item mr-2">
+                <select id="fontCustomizer" class="form-control form-control-sm" style="min-width:120px;">
+                    <option value="Roboto">Roboto</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Poppins">Poppins</option>
+                    <option value="Lato">Lato</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Source Sans Pro">Source Sans Pro</option>
+                </select>
+            </li>
             <li class="nav-item">
                 <button id="darkModeToggle" class="btn btn-dark mr-2" title="Toggle Dark/Light Mode"><i class="fas fa-moon"></i></button>
             </li>
@@ -41,10 +51,18 @@
                     <i class="fas fa-cog"></i> Pengaturan
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="logout.php">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+            <li class="nav-item dropdown">
+                <a class="nav-link d-flex align-items-center" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <img src="<?php echo isset($_SESSION['user_avatar']) ? $_SESSION['user_avatar'] : 'assets/img/default-avatar.png'; ?>" class="img-circle elevation-2" alt="User Image" style="width:32px;height:32px;object-fit:cover;">
+                    <span class="ml-2 d-none d-md-inline font-weight-bold"><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'User'; ?></span>
+                    <i class="fas fa-angle-down ml-1"></i>
                 </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal"><i class="fas fa-user mr-2"></i> Profil</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal"><i class="fas fa-key mr-2"></i> Ubah Password</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a>
+                </div>
             </li>
         </ul>
     </nav>
@@ -98,7 +116,16 @@
                     </li>
                 </ul>
             </nav>
-            <!-- /.sidebar-menu -->
+            <!-- Sidebar Background Customizer -->
+            <div class="sidebar-bg-customizer p-3">
+                <div class="mb-2 font-weight-bold" style="font-size:0.95rem;">Sidebar Background</div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="sidebar-bg-option bg-solid-blue" data-bg="solid-blue" title="Biru"></span>
+                    <span class="sidebar-bg-option bg-solid-green" data-bg="solid-green" title="Hijau"></span>
+                    <span class="sidebar-bg-option bg-gradient" data-bg="gradient" title="Gradient"></span>
+                    <span class="sidebar-bg-option bg-image" data-bg="image" title="Gambar"></span>
+                </div>
+            </div>
         </div>
         <!-- /.sidebar -->
     </aside>

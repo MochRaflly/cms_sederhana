@@ -279,4 +279,41 @@ $(function() {
     $input.on('blur', function() { setTimeout(function() { $dropdown.removeClass('show'); }, 200); });
     // Show dropdown on focus if ada hasil
     $input.on('focus', function() { if ($dropdown.children().length) $dropdown.addClass('show'); });
+});
+
+// FONT CUSTOMIZER
+$(function() {
+    function setFont(font) {
+        var className = 'font-' + font.toLowerCase().replace(/ /g, '-');
+        $('body').removeClass('font-roboto font-open-sans font-poppins font-lato font-montserrat font-source-sans-pro').addClass(className);
+        localStorage.setItem('dashboardFont', font);
+        // Load Google Fonts jika belum ada
+        if (!$('link[data-font="' + font + '"]').length) {
+            var href = 'https://fonts.googleapis.com/css?family=' + encodeURIComponent(font) + ':300,400,700&display=swap';
+            $('head').append('<link rel="stylesheet" data-font="' + font + '" href="' + href + '">');
+        }
+    }
+    $('#fontCustomizer').on('change', function() {
+        setFont($(this).val());
+    });
+    // On load
+    var savedFont = localStorage.getItem('dashboardFont') || 'Roboto';
+    $('#fontCustomizer').val(savedFont);
+    setFont(savedFont);
+});
+
+// SIDEBAR BACKGROUND CUSTOMIZER
+$(function() {
+    function setSidebarBg(bg) {
+        $('.main-sidebar').removeClass('bg-solid-blue bg-solid-green bg-gradient bg-image').addClass('bg-' + bg);
+        localStorage.setItem('sidebarBg', bg);
+        $('.sidebar-bg-option').removeClass('active');
+        $('.sidebar-bg-option[data-bg="' + bg + '"]').addClass('active');
+    }
+    $('.sidebar-bg-option').on('click', function() {
+        setSidebarBg($(this).data('bg'));
+    });
+    // On load
+    var savedBg = localStorage.getItem('sidebarBg') || 'solid-blue';
+    setSidebarBg(savedBg);
 }); 

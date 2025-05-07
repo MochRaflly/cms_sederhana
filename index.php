@@ -106,40 +106,51 @@ include 'includes/header.php';
                         </div>
                     </div>
                 </div>
-                <!-- Recent Posts -->
+                <!-- Notifikasi Sistem -->
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-content-between align-items-center">
                             <h3 class="card-title">
-                                <i class="fas fa-file-alt"></i>
-                                Recent Posts
+                                <i class="fas fa-bell"></i>
+                                Notifikasi Sistem
                             </h3>
+                            <button class="btn btn-sm btn-primary" onclick="showToast('Contoh notifikasi sukses!', 'success')">Demo Toast</button>
                         </div>
                         <div class="card-body">
                             <ul class="list-group">
                                 <?php
-                                $stmt = $pdo->query("
-                                    SELECT posts.*, categories.name as category_name 
-                                    FROM posts 
-                                    LEFT JOIN categories ON posts.category_id = categories.id 
-                                    ORDER BY created_at DESC LIMIT 5
-                                ");
-                                $recentPosts = $stmt->fetchAll();
-                                foreach ($recentPosts as $post):
+                                // Dummy notifikasi sistem
+                                $systemNotifications = [
+                                    [
+                                        'type' => 'info',
+                                        'title' => 'Server Online',
+                                        'desc' => 'Semua layanan berjalan normal.',
+                                        'time' => 'Baru saja'
+                                    ],
+                                    [
+                                        'type' => 'warning',
+                                        'title' => 'Maintenance Terjadwal',
+                                        'desc' => 'Akan ada maintenance pada 12 Juni 2024, 22:00 WIB.',
+                                        'time' => '1 jam lagi'
+                                    ],
+                                    [
+                                        'type' => 'danger',
+                                        'title' => 'Update Aplikasi',
+                                        'desc' => 'Versi baru CMS tersedia. Silakan update.',
+                                        'time' => 'Kemarin'
+                                    ],
+                                ];
+                                foreach ($systemNotifications as $notif):
+                                    $icon = $notif['type'] === 'info' ? 'fa-info-circle' : ($notif['type'] === 'warning' ? 'fa-exclamation-triangle' : 'fa-times-circle');
+                                    $badge = $notif['type'] === 'info' ? 'info' : ($notif['type'] === 'warning' ? 'warning' : 'danger');
                                 ?>
-                                <li class="list-group-item">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h6 class="mb-0"><?php echo htmlspecialchars($post['title']); ?></h6>
-                                            <small class="text-muted">
-                                                <?php echo htmlspecialchars($post['category_name'] ?? 'Uncategorized'); ?> | 
-                                                <?php echo date('M d, Y', strtotime($post['created_at'])); ?>
-                                            </small>
-                                        </div>
-                                        <span class="badge badge-<?php echo $post['status'] == 'published' ? 'success' : 'secondary'; ?>">
-                                            <?php echo ucfirst($post['status']); ?>
-                                        </span>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <span class="mr-2"><i class="fas <?php echo $icon; ?> text-<?php echo $badge; ?>"></i></span>
+                                    <div>
+                                        <strong><?php echo $notif['title']; ?></strong><br>
+                                        <small class="text-muted"><?php echo $notif['desc']; ?></small>
                                     </div>
+                                    <span class="ml-auto badge badge-<?php echo $badge; ?>"><?php echo $notif['time']; ?></span>
                                 </li>
                                 <?php endforeach; ?>
                             </ul>

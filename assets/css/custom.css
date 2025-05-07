@@ -396,4 +396,52 @@ body.theme-blue .btn-primary { color: #4e73df !important; }
 body.theme-green .btn-primary { color: #1cc88a !important; }
 body.theme-purple .btn-primary { color: #6f42c1 !important; }
 body.theme-red .btn-primary { color: #e74a3b !important; }
-body.theme-orange .btn-primary { color: #f6c23e !important; } 
+body.theme-orange .btn-primary { color: #f6c23e !important; }
+
+/* Font Customizer */
+body.font-roboto { font-family: 'Roboto', Arial, sans-serif !important; }
+body.font-open-sans { font-family: 'Open Sans', Arial, sans-serif !important; }
+body.font-poppins { font-family: 'Poppins', Arial, sans-serif !important; }
+body.font-lato { font-family: 'Lato', Arial, sans-serif !important; }
+body.font-montserrat { font-family: 'Montserrat', Arial, sans-serif !important; }
+body.font-source-sans-pro { font-family: 'Source Sans Pro', Arial, sans-serif !important; }
+
+/* Sidebar Background Customizer */
+.sidebar-bg-customizer {
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+}
+.sidebar-bg-option {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    margin-right: 8px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.sidebar-bg-option:hover, .sidebar-bg-option.active {
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-color: #4e73df;
+}
+.bg-solid-blue { background: #4e73df; }
+.bg-solid-green { background: #1cc88a; }
+.bg-gradient { background: linear-gradient(135deg, #4e73df 0%, #1cc88a 100%); }
+.bg-image { background: url('https://www.toptal.com/designers/subtlepatterns/patterns/symphony.png'); background-size: cover; }
+
+/* Sidebar Custom Backgrounds */
+.main-sidebar.bg-solid-blue { background: #4e73df !important; }
+.main-sidebar.bg-solid-green { background: #1cc88a !important; }
+.main-sidebar.bg-gradient { background: linear-gradient(135deg, #4e73df 0%, #1cc88a 100%) !important; }
+.main-sidebar.bg-image { background: url('https://www.toptal.com/designers/subtlepatterns/patterns/symphony.png') !important; background-size: cover !important; }
+
+/* Animasi Sidebar */
+.main-sidebar {
+    transition: width 0.4s cubic-bezier(0.4,0,0.2,1), background 0.5s, background-image 0.5s;
+}
+.sidebar {
+    transition: background 0.5s, background-image 0.5s;
+} 
